@@ -25,4 +25,5 @@ public class QuartoTest {
 		quarto.liberarQuarto();
 		assertFalse(quarto.getOcupado());
 	}
+
 }

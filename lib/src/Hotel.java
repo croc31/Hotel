@@ -34,6 +34,10 @@ public class Hotel {
         this.nome = nome;
     }
 
+    public BigDecimal getSaldo(){
+        return this.saldo;
+    }
+
     // Método para cadastrar novos quartos
     public void CadastrarQuarto(int numero, int andar, QuartoEnum tipo) {
         Quarto quartoNovo = new Quarto(numero, andar, tipo);

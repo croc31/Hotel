@@ -241,7 +241,7 @@ public class Hotel {
     }
 
     // Método para criar um objeto funcionário e contratá-lo
-    public void Contratar(String nome, long CPF, String cargo, SalaEnum sala) {
+    public long Contratar(String nome, long CPF, String cargo, SalaEnum sala) {
         Funcionario func;
         switch (sala) {
             case RECEPCAO:// recepçao recepcionista
@@ -258,13 +258,14 @@ public class Hotel {
                 break;
             default:
                 System.out.println("Erro: sala não listada, funcionario inicializado com salario igual a 0");
-                return;
+                return -1L;
         }
         funcionarios.add(func);
+        return func.getID();
     }
 
     // Método prar demitir funcionário
-    public void Demitir(int ID) {
+    public void Demitir(long ID) {
         Funcionario func = BuscaFunc(ID);
         if (func != null) {
             funcionarios.remove(func);
@@ -274,7 +275,7 @@ public class Hotel {
     }
 
     // Busca linear por funcionario de ID fornecido
-    public Funcionario BuscaFunc(int ID) {
+    public Funcionario BuscaFunc(long ID) {
         for (Funcionario func : funcionarios) {
             if (func.ID == ID) {
                 return func;
@@ -341,7 +342,7 @@ public class Hotel {
     }
 
     // Método para dar aumento de salário de funcionário
-    public void Aumento(int ID) {
+    public void Aumento(long ID) {
         Funcionario func = BuscaFunc(ID);
         if (func != null) {
             func.Aumento(new BigDecimal("1.1"));
@@ -352,16 +353,18 @@ public class Hotel {
 
     // Método para listar todas as informações sobre o hotel e ajudar no teste dos
     // métodos
+    /*
     public void Listar() {
         this.ListarHotel();
         this.ListarClientes();
         this.ListarFuncionarios();
         this.ListarQuartos();
         System.out.println("--------------------------------");
-    }
+    }*/
 
     // Método para listar as informações basicas sobre o hotel e ajudar no teste dos
     // métodos
+    /*
     public void ListarHotel() {
         System.out.println("---Estado do Hotel---");
         System.out.println("Nome: " + this.nome);
@@ -371,11 +374,12 @@ public class Hotel {
         System.out.println(
                 "Quantidade de quartos: " + (simples.size() + casal.size() + luxuoso.size() +
                         presidencial.size()));
-    }
+    }*/
 
     // Método para listar todas as informações sobre os clientes e ajudar no teste
     // dos
     // métodos
+    /*
     public void ListarClientes() {
         System.out.println("--------------------------------");
         System.out.println("Clientes:");
@@ -384,11 +388,12 @@ public class Hotel {
             System.out.println();
         }
         System.out.println();
-    }
+    }*/
 
     // Método para listar todas as informações sobre os funcionarios e ajudar no
     // teste dos
     // métodos
+    /*
     public void ListarFuncionarios() {
         System.out.println("--------------------------------");
         System.out.println("Funcionarios: ");
@@ -397,11 +402,12 @@ public class Hotel {
             System.out.println();
         }
         System.out.println();
-    }
+    }*/
 
     // Método para listar todas as informações sobre os quartos e ajudar no teste
     // dos
     // métodos
+    /*
     public void ListarQuartos() {
         System.out.println("--------------------------------");
         System.out.println("Quartos Simples:");
@@ -428,7 +434,7 @@ public class Hotel {
             System.out.println();
         }
         System.out.println();
-    }
+    }*/
     
     public Cliente getCliente(int ID) {
     	if(ID <= clientes.size()) {
@@ -470,7 +476,7 @@ public class Hotel {
     }
     
     public static void main(String[] args) {
-        Hotel hotel = new Hotel("Grand Hotel");
+        /*Hotel hotel = new Hotel("Grand Hotel");
         // cadastrando um quarto de cada tipo
         for (QuartoEnum i : QuartoEnum.values()) {
             hotel.CadastrarQuarto(i.getValor(), i.getValor(), i);
@@ -504,6 +510,6 @@ public class Hotel {
         hotel.Listar();
         hotel.DarBaixa(5, QuartoEnum.SIMPLES, 0, 0);
         hotel.Listar();
-
+*/
     }
 }
